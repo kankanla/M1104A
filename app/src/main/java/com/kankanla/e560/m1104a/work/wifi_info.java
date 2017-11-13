@@ -71,6 +71,9 @@ public class wifi_info extends Service {
         builder.setPriority(NotificationCompat.PRIORITY_MAX);
         builder.setSmallIcon(R.drawable.f6146);
 
+        builder.setContentTitle(getString(R.string.Wi_Fi_SPOT));
+        builder.setContentText("WiFiを接続していません");
+
         if (wifiInfo.getBSSID() != null) {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.f6146);
             builder.setLargeIcon(bitmap);
@@ -89,22 +92,16 @@ public class wifi_info extends Service {
                 }
             }
             builder.setStyle(inboxStyle);
-        } else {
-            builder.setContentTitle(getString(R.string.Wi_Fi_SPOT));
-            builder.setContentText("WiFiを接続していません");
         }
-
         notificationManager.notify(NID, builder.build());
     }
 
 
     protected String IP_addr(int ipAddress) {
-        String strIPAddess =
-                ((ipAddress >> 0) & 0xFF) + "." +
-                        ((ipAddress >> 8) & 0xFF) + "." +
-                        ((ipAddress >> 16) & 0xFF) + "." +
-                        ((ipAddress >> 24) & 0xFF);
-        return strIPAddess;
+        return ((ipAddress >> 0 & 0xFF) + "." +
+                ((ipAddress >> 8) & 0xFF) + "." +
+                ((ipAddress >> 16) & 0xFF) + "." +
+                ((ipAddress >> 24) & 0xFF));
     }
 
 }
