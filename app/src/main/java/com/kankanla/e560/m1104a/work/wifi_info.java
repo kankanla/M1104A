@@ -74,7 +74,7 @@ public class wifi_info extends Service {
         builder.setContentTitle(getString(R.string.Wi_Fi_SPOT));
         builder.setContentText("WiFiを接続していません");
 
-        if (wifiInfo.getBSSID() != null) {
+        if (wifiInfo.getIpAddress() != 0) {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.f6146);
             builder.setLargeIcon(bitmap);
             builder.setContentTitle(getString(R.string.Wi_Fi_SPOT));
