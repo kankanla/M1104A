@@ -29,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void bttest() {
-        final BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        BluetoothManager bluetoothManager = (BluetoothManager) getSystemService(BLUETOOTH_SERVICE);
+        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
         BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
             @Override
@@ -40,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println("--------------ACTION_CONNECTION_STATE_CHANGED------4-----");
                         System.out.println(BluetoothAdapter.ACTION_CONNECTION_STATE_CHANGED);
                         int x = intent.getIntExtra(BluetoothAdapter.EXTRA_CONNECTION_STATE, 99);
-
 
                         if (x == BluetoothAdapter.STATE_CONNECTED) {
                             System.out.println("--------------2222222222222222------4-----");
@@ -57,14 +55,33 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println("---------ACTION_STATE_CHANGED---------------------------------------------");
                         System.out.println(intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, 22));
                         break;
+                    case BluetoothAdapter.ACTION_DISCOVERY_FINISHED:
+                        System.out.println("--------本地蓝牙适配器已完成设备发现过程。----------------");
+                        break;
+                    case BluetoothAdapter.ACTION_DISCOVERY_STARTED:
+                        System.out.println("-------------本地蓝牙适配器已启动远程设备发现过程。------------");
+                        break;
+                    case BluetoothDevice.ACTION_FOUND:
+                        System.out.println("---------------------发现远程设备。---------------------");
+                        System.out.println(intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE));
+                        BluetoothDevice bluetoothDevice = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                        System.out.println(bluetoothDevice.getName());
+                        System.out.println(bluetoothDevice.getAddress());
+                        break;
                 }
             }
         };
 
         IntentFilter intentFilter = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
         IntentFilter intentFilter1 = new IntentFilter(BluetoothAdapter.ACTION_CONNECTION_STATE_CHANGED);
+        IntentFilter intentFilter2 = new IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
+        IntentFilter intentFilter3 = new IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_STARTED);
+        IntentFilter intentFilter4 = new IntentFilter(BluetoothDevice.ACTION_FOUND);
         registerReceiver(broadcastReceiver, intentFilter);
         registerReceiver(broadcastReceiver, intentFilter1);
+        registerReceiver(broadcastReceiver, intentFilter2);
+        registerReceiver(broadcastReceiver, intentFilter3);
+        registerReceiver(broadcastReceiver, intentFilter4);
     }
 
 
