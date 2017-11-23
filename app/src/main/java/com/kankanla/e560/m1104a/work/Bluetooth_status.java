@@ -1,5 +1,7 @@
 package com.kankanla.e560.m1104a.work;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.Service;
 import android.bluetooth.BluetoothA2dp;
 import android.bluetooth.BluetoothAdapter;
@@ -10,12 +12,18 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.IBinder;
+import android.support.v4.app.NotificationCompat;
+
+import com.kankanla.e560.m1104a.R;
 
 import java.util.List;
 
 public class Bluetooth_status extends Service {
     private BluetoothAdapter bluetoothAdapter;
+    private NotificationManager notificationManager;
 
     public Bluetooth_status() {
     }
@@ -30,8 +38,13 @@ public class Bluetooth_status extends Service {
     public void onCreate() {
         super.onCreate();
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        bluetoothAdapter.enable();
+        notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        if (!bluetoothAdapter.isEnabled()) {
+
+        }
         bt_change();
+        bt_info();
     }
 
     @Override
@@ -62,42 +75,24 @@ public class Bluetooth_status extends Service {
         registerReceiver(broadcastReceiver, intentFilter);
     }
 
-
     private void bt_info() {
-
-
         BluetoothProfile.ServiceListener serviceListener = new BluetoothProfile.ServiceListener() {
             @Override
             public void onServiceConnected(int profile, BluetoothProfile proxy) {
                 System.out.println("---------onServiceConnected-----------");
-                System.out.println(profile);
-                if (profile == BluetoothProfile.A2DP) {
-                    List<BluetoothDevice> bluetoothDevices = proxy.getConnectedDevices();
-                    for (BluetoothDevice bt : bluetoothDevices) {
-                        System.out.println(bt.getName());
-                        System.out.println(bt.getAddress());
-                        System.out.println(bt.getBondState());
-                        System.out.println(bt.getAddress());
-                        System.out.println("getConnectionState-----  " + proxy.getConnectionState(bt));
-                    }
-                }
 
                 if (profile == BluetoothProfile.HEADSET) {
-                    List<BluetoothDevice> bluetoothDevices = proxy.getConnectedDevices();
-                    for (BluetoothDevice bt : bluetoothDevices) {
-                        System.out.println(bt.getName());
-                        System.out.println(bt.getAddress());
-                        System.out.println(bt.getBondState());
-                        System.out.println(bt.getAddress());
-                        System.out.println("getConnectionState-----  " + proxy.getConnectionState(bt));
-                    }
+                    HEADSET_noti(proxy.getConnectedDevices());
+                }
+
+                if (profile == BluetoothProfile.A2DP) {
+                    A2DP_noti(proxy.getConnectedDevices());
                 }
             }
 
             @Override
             public void onServiceDisconnected(int profile) {
                 System.out.println("---------onServiceDisconnected-----------");
-
             }
         };
 
@@ -106,5 +101,44 @@ public class Bluetooth_status extends Service {
 
     }
 
+    private void HEADSET_noti(List<BluetoothDevice> devices) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "HEADSET");
+        NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
+        builder.setSmallIcon(android.R.drawable.btn_default);
+        builder.setContentTitle("HEADSET >>");
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.f6146);
+        builder.setLargeIcon(bitmap);
+        for (BluetoothDevice bt : devices) {
+            inboxStyle.addLine("HEADSET >>" + bt.getName());
+            inboxStyle.addLine("HEADSET >>" + bt.getAddress());
+        }
+        builder.setStyle(inboxStyle);
+        Notification notification = builder.build();
+        if (devices.size() > 0) {
+            notificationManager.notify(12, notification);
+        } else {
+            notificationManager.cancel(12);
+        }
+    }
+
+    private void A2DP_noti(List<BluetoothDevice> devices) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "A2DP");
+        builder.setSmallIcon(android.R.drawable.btn_default);
+        builder.setContentTitle("A2DP_noti >>");
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.f6146);
+        builder.setLargeIcon(bitmap);
+        NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
+        for (BluetoothDevice bt : devices) {
+            inboxStyle.addLine("A2DP_noti >>" + bt.getName());
+            inboxStyle.addLine("A2DP_noti >>" + bt.getAddress());
+        }
+        builder.setStyle(inboxStyle);
+        Notification notification = builder.build();
+        if (devices.size() > 0) {
+            notificationManager.notify(112, notification);
+        } else {
+            notificationManager.cancel(112);
+        }
+    }
 }
 
