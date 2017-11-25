@@ -94,7 +94,7 @@ public class wifi_info extends Service {
 
 
             NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
-            inboxStyle.addLine("ネットワーク名:" + wifiInfo.getSSID());
+            inboxStyle.addLine("ネットワーク名:" + wifiInfo.getSSID());//WifiSSID:
             inboxStyle.addLine("IPアドレス:" + ip);
             if (wifiInfo.getLinkSpeed() > 0) {
                 inboxStyle.addLine("リンク速度:" + wifiInfo.getLinkSpeed() + "Mbps");

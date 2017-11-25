@@ -24,7 +24,17 @@
         <service
             android:name=".work.wifi_info"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+        <service
+            android:name=".work.Bluetooth_status"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".noti"
+            android:parentActivityName=".MainActivity">
+
+        </activity>
     </application>
 
 </manifest>
