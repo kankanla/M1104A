@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.DhcpInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
@@ -75,26 +76,29 @@ public class wifi_info extends Service {
 
     protected void wifi_info_notifi() {
         wifiInfo = wifiManager.getConnectionInfo();
+        DhcpInfo dhcpInfo = wifiManager.getDhcpInfo();
+        System.out.println(dhcpInfo.toString());
 
         String ip = IP_addr(wifiInfo.getIpAddress());
-        String SSID = wifiInfo.getSSID();
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CID);
         builder.setBadgeIconType(NotificationCompat.BADGE_ICON_LARGE);
         builder.setPriority(NotificationCompat.PRIORITY_MAX);
-        builder.setSmallIcon(R.drawable.f6146);
+        builder.setSmallIcon(R.drawable.path2679);
+        builder.setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL);
         builder.setContentTitle(getString(R.string.Wi_Fi_SPOT));
         builder.setContentText("WiFiを接続していません");
 
         if (wifiInfo.getIpAddress() != 0) {
             notificationManager.cancel(NID);
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.f6146);
+//            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.f6146);
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.text2784);
             builder.setLargeIcon(bitmap);
             builder.setContentTitle(getString(R.string.Wi_Fi_SPOT));
-            builder.setContentText("SSID:" + SSID + "   IP:" + ip);
-
+            builder.setContentText("SSID:" + wifiInfo.getSSID() + "   IP:" + ip);
 
             NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
-            inboxStyle.addLine("ネットワーク名:" + wifiInfo.getSSID());//WifiSSID:
+            inboxStyle.addLine("WiFiSSID:" + wifiInfo.getSSID());
+            inboxStyle.addLine("BSSID:" + wifiInfo.getBSSID());
             inboxStyle.addLine("IPアドレス:" + ip);
             if (wifiInfo.getLinkSpeed() > 0) {
                 inboxStyle.addLine("リンク速度:" + wifiInfo.getLinkSpeed() + "Mbps");
@@ -112,8 +116,10 @@ public class wifi_info extends Service {
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
             TaskStackBuilder stackBuilder = TaskStackBuilder.create(getApplicationContext());
+
             stackBuilder.addParentStack(noti.class);
             stackBuilder.addNextIntent(wifi_set_intent);
+
             PendingIntent pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_CANCEL_CURRENT);
             builder.setContentIntent(pendingIntent);
         }

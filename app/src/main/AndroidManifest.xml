@@ -32,9 +32,8 @@
 
         <activity
             android:name=".noti"
-            android:parentActivityName=".MainActivity">
-
-        </activity>
+            android:parentActivityName=".global_ip"></activity>
+        <activity android:name=".global_ip"></activity>
     </application>
 
 </manifest>

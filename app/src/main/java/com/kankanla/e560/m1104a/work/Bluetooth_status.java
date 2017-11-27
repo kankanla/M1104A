@@ -71,7 +71,7 @@ public class Bluetooth_status extends Service {
         intentFilter.addAction(BluetoothHeadset.ACTION_AUDIO_STATE_CHANGED);
         intentFilter.addAction(BluetoothHeadset.ACTION_CONNECTION_STATE_CHANGED);
         intentFilter.addAction(BluetoothA2dp.ACTION_CONNECTION_STATE_CHANGED);
-        intentFilter.addAction(BluetoothA2dp.ACTION_PLAYING_STATE_CHANGED);
+//        intentFilter.addAction(BluetoothA2dp.ACTION_PLAYING_STATE_CHANGED);
         registerReceiver(broadcastReceiver, intentFilter);
     }
 
@@ -105,10 +105,10 @@ public class Bluetooth_status extends Service {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "HEADSET");
         NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
         builder.setSmallIcon(android.R.drawable.btn_default);
-        builder.setContentTitle("HEADSET >>");
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.f6146);
         builder.setLargeIcon(bitmap);
         for (BluetoothDevice bt : devices) {
+            builder.setContentTitle("HEADSET >>" + bt.getName());
             inboxStyle.addLine("HEADSET >>" + bt.getName());
             inboxStyle.addLine("HEADSET >>" + bt.getAddress());
         }
@@ -124,11 +124,12 @@ public class Bluetooth_status extends Service {
     private void A2DP_noti(List<BluetoothDevice> devices) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "A2DP");
         builder.setSmallIcon(android.R.drawable.btn_default);
-        builder.setContentTitle("A2DP_noti >>");
+
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.f6146);
         builder.setLargeIcon(bitmap);
         NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
         for (BluetoothDevice bt : devices) {
+            builder.setContentTitle("A2DP_noti >>" + bt.getName());
             inboxStyle.addLine("A2DP_noti >>" + bt.getName());
             inboxStyle.addLine("A2DP_noti >>" + bt.getAddress());
         }
