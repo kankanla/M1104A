@@ -100,7 +100,7 @@ public class Global_IP {
 
         @Override
         protected void onPostExecute(JSONObject jsonObject) {
-            
+
             callBack.Show_Json(jsonObject);
             super.onPostExecute(jsonObject);
         }
