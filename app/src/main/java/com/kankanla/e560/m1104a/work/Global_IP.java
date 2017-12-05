@@ -1,7 +1,10 @@
 package com.kankanla.e560.m1104a.work;
 
 import android.content.Context;
+import android.net.Network;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Build;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -100,7 +103,6 @@ public class Global_IP {
 
         @Override
         protected void onPostExecute(JSONObject jsonObject) {
-
             callBack.Show_Json(jsonObject);
             super.onPostExecute(jsonObject);
         }

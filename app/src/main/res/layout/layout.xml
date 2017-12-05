@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@android:string/VideoView_error_button"
+        android:cropToPadding="false"
+        android:scaleType="fitStart"
+        android:visibility="visible"
+        app:srcCompat="@drawable/rect877" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/gipaddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="12dp"
+                    android:gravity="center_horizontal"
+                    android:text="Global IP address"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="9dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/country"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="country:"
+                        android:textAlignment="textEnd"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/regionName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="region:"
+                        android:textAlignment="textEnd"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/city"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="city:"
+                        android:textAlignment="textEnd"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/zip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="zip:"
+                        android:textAlignment="textEnd"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/timezone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="Timezone:"
+                        android:textAlignment="textEnd"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/isp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="isp:"
+                        android:textAlignment="textEnd"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/org"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="org:"
+                        android:textAlignment="textEnd"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/as"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="as:"
+                        android:textAlignment="textEnd"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/countryj"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="country"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/regionNamej"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="regionName"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/cityj"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="city"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/zipj"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="zip"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/timezonej"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Timezone"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/ispj"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="isp"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/orgj"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="org"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/asj"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="as"
+                        android:textSize="24sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
+</RelativeLayout>
