@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">M1104A</string>
     <string name="Wi_Fi_SPOT">Wi-Fi SPOT</string>
+    <string name="country">country</string>
+    <string name="ISP">ISP</string>
+    <string name="as">as</string>
+    <string name="org">Organization</string>
 </resources>

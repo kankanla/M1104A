@@ -22,10 +22,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, wifi_info.class);
         startService(intent);
 
-
-
-//        Uri uri = Uri.parse("http://ip-api.com/");
-//        Intent intent3 = new Intent(Intent.ACTION_VIEW, uri);
-//        startActivity(intent3);
+//        Intent intent = new Intent(this,global_ip.class);
+//        startActivity(intent);
     }
 }

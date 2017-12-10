@@ -1,0 +1,258 @@
+
+
+//////////////////////////////////////////////////////////////
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@android:string/VideoView_error_button"
+        android:cropToPadding="false"
+        android:scaleType="centerCrop"
+        android:visibility="visible"
+        app:srcCompat="@drawable/rect8772" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/gipaddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="12dp"
+                    android:gravity="center_horizontal"
+                    android:text="Global IP address"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="9dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/country"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="country:"
+                        android:textAlignment="textEnd"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/regionName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="region:"
+                        android:textAlignment="textEnd"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/city"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="city:"
+                        android:textAlignment="textEnd"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/zip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="zip:"
+                        android:textAlignment="textEnd"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/timezone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="Timezone:"
+                        android:textAlignment="textEnd"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/isp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="isp:"
+                        android:textAlignment="textEnd"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/org"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="org:"
+                        android:textAlignment="textEnd"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/as"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="as:"
+                        android:textAlignment="textEnd"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/countryj"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="country"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/regionNamej"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="regionName"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/cityj"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="city"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/zipj"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="zip"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/timezonej"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Timezone"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/ispj"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="isp"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/orgj"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="org"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/asj"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="as"
+                        android:textSize="24sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+
+
+
+////////////////////////////////////////////////////////////////
+package com.kankanla.e560.m1104a;
+import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
+import com.kankanla.e560.m1104a.work.Global_IP;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class global_ip extends AppCompatActivity {
+    protected TextView gipaddress;
+    protected TextView country;
+    protected TextView city;
+    protected TextView zip;
+    protected TextView regionName;
+    protected TextView timezone;
+    protected TextView isp;
+    protected TextView org;
+    protected TextView as;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.layout);
+        setTitle("Global IP address");
+        gipaddress = findViewById(R.id.gipaddress);
+        country = findViewById(R.id.countryj);
+        city = findViewById(R.id.cityj);
+        zip = findViewById(R.id.zipj);
+        regionName = findViewById(R.id.regionNamej);
+        timezone = findViewById(R.id.timezonej);
+        isp = findViewById(R.id.ispj);
+        org = findViewById(R.id.orgj);
+        as = findViewById(R.id.asj);
+        t1();
+    }
+
+    protected void t1() {
+        Global_IP global_ip = new Global_IP(this, new Global_IP.CallBack() {
+            @Override
+            public void Show_Json(JSONObject jsonObject) {
+                try {
+                    System.out.println(jsonObject);
+                    gipaddress.setText(jsonObject.getString("query"));
+                    gipaddress.setTextSize(45);
+                    country.setText(jsonObject.getString("country"));
+                    city.setText(jsonObject.getString("city"));
+                    zip.setText(jsonObject.getString("zip"));
+                    regionName.setText(jsonObject.getString("regionName"));
+                    timezone.setText(jsonObject.getString("timezone"));
+                    isp.setText(jsonObject.getString("isp"));
+                    org.setText(jsonObject.getString("org"));
+                    as.setText(jsonObject.getString("as"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        global_ip.show();
+    }
+}

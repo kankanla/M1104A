@@ -40,11 +40,13 @@ public class Bluetooth_status extends Service {
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-        if (!bluetoothAdapter.isEnabled()) {
+        if (bluetoothAdapter != null) {
+            if (!bluetoothAdapter.isEnabled()) {
 
+            }
+            bt_change();
+            bt_info();
         }
-        bt_change();
-        bt_info();
     }
 
     @Override
@@ -63,15 +65,9 @@ public class Bluetooth_status extends Service {
         };
 
         IntentFilter intentFilter = new IntentFilter();
-//        intentFilter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
-//        intentFilter.addAction(BluetoothAdapter.ACTION_CONNECTION_STATE_CHANGED);
-//        intentFilter.addAction(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
-//        intentFilter.addAction(BluetoothDevice.ACTION_NAME_CHANGED);
-//        intentFilter.addAction(BluetoothAdapter.ACTION_LOCAL_NAME_CHANGED);
         intentFilter.addAction(BluetoothHeadset.ACTION_AUDIO_STATE_CHANGED);
         intentFilter.addAction(BluetoothHeadset.ACTION_CONNECTION_STATE_CHANGED);
         intentFilter.addAction(BluetoothA2dp.ACTION_CONNECTION_STATE_CHANGED);
-//        intentFilter.addAction(BluetoothA2dp.ACTION_PLAYING_STATE_CHANGED);
         registerReceiver(broadcastReceiver, intentFilter);
     }
 

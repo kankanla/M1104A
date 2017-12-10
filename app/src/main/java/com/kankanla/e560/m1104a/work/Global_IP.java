@@ -1,10 +1,7 @@
 package com.kankanla.e560.m1104a.work;
 
 import android.content.Context;
-import android.net.Network;
-import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import android.os.Build;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,6 +19,8 @@ import java.net.URL;
 
 public class Global_IP {
     public static String GIP_API_URL = "http://ip-api.com/json";
+    //    public static String GIP_API_URL = "https://ipinfo.io/json";
+    //    public static String GIP_API_URL = "https://ipapi.co/json";
     protected Context context;
     protected JSONObject jsonObject;
     private CallBack callBack;
