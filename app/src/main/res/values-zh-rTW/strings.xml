@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">M1104A</string>
+    <string name="Wi_Fi_SPOT">Wi-Fi SPOT</string>
+    <string name="user_ip">您正在使用的IP地址</string>
+    <string name="country">所在地</string>
+    <string name="ISP">互联网服务供应商</string>
+    <string name="as">自治系统号</string>
+    <string name="org">组织</string>
+</resources>

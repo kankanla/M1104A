@@ -16,13 +16,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent1 = new Intent(this, Bluetooth_status.class);
-        startService(intent1);
+//        Intent intent1 = new Intent(this, Bluetooth_status.class);
+//        startService(intent1);
+//
+//        Intent intent = new Intent(this, wifi_info.class);
+//        startService(intent);
 
-        Intent intent = new Intent(this, wifi_info.class);
-        startService(intent);
-
-//        Intent intent = new Intent(this,global_ip.class);
-//        startActivity(intent);
+        Intent intent = new Intent(this,global_ip.class);
+        startActivity(intent);
     }
 }

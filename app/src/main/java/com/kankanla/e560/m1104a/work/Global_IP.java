@@ -2,6 +2,7 @@ package com.kankanla.e560.m1104a.work;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,7 +19,7 @@ import java.net.URL;
  */
 
 public class Global_IP {
-    public static String GIP_API_URL = "http://ip-api.com/json";
+    public String GIP_API_URL = "http://ip-api.com/json";
     //    public static String GIP_API_URL = "https://ipinfo.io/json";
     //    public static String GIP_API_URL = "https://ipapi.co/json";
     protected Context context;
@@ -29,6 +30,21 @@ public class Global_IP {
         this.context = context;
         this.callBack = callBack;
         jsonObject = new JSONObject();
+        Log.d("3333", context.getResources().getConfiguration().locale.getLanguage());
+        switch (context.getResources().getConfiguration().locale.getLanguage()) {
+            case "en":
+                GIP_API_URL = "http://ip-api.com/json?lang=en";
+                break;
+            case "ja":
+                GIP_API_URL = "http://ip-api.com/json?lang=ja";
+                break;
+            case "zh":
+                GIP_API_URL = "http://ip-api.com/json?lang=zh-CN";
+                break;
+            default:
+                GIP_API_URL = "http://ip-api.com/json";
+                break;
+        }
     }
 
     public interface CallBack {
@@ -54,6 +70,7 @@ public class Global_IP {
         @Override
         protected JSONObject doInBackground(String... strings) {
             try {
+                Log.d("7777", strings[0]);
                 URL url = new URL(strings[0]);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setReadTimeout(10 * 1000);
