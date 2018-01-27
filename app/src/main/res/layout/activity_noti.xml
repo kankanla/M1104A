@@ -5,19 +5,4 @@
     android:layout_height="match_parent"
     tools:context="com.kankanla.e560.m1104a.noti">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="139dp"
-        tools:layout_editor_absoluteY="181dp" />
-
-    <WebView
-        android:layout_width="368dp"
-        android:layout_height="165dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp" />
 </android.support.constraint.ConstraintLayout>

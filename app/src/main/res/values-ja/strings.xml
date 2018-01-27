@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">M1104A</string>
     <string name="Wi_Fi_SPOT">Wi-Fi SPOT</string>
-    <string name="user_ip">あなたの利用しているIPアドレス</string>
-    <string name="country">所在地</string>
+    <string name="user_ip">現在利用しているIPアドレス</string>
+    <string name="country">IP所在地</string>
     <string name="ISP">インターネット プロバイダ</string>
-    <string name="as">Autonomous system番号</string>
+    <string name="as">AS 番号</string>
     <string name="org">組織</string>
+    <string name="app_name2">IP インフォメーション</string>
 </resources>

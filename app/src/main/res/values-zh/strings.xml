@@ -6,6 +6,6 @@
     <string name="country">IP所在地</string>
     <string name="ISP">互联网服务供应商</string>
     <string name="as">自治系统号</string>
-    <string name="org">支持組織</string>
+    <string name="org">支持组织</string>
     <string name="app_name2">IP信息</string>
 </resources>

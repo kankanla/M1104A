@@ -1,9 +1,13 @@
 package com.kankanla.e560.m1104a;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -46,6 +50,18 @@ public class global_ip extends AppCompatActivity {
         show_ip();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add("Saher_IP");
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d("9999", String.valueOf(item.getTitle()));
+        return super.onOptionsItemSelected(item);
+    }
+
     protected void show_ip() {
         Global_IP global_ip = new Global_IP(getApplicationContext(), new Global_IP.CallBack() {
             @Override
@@ -75,6 +91,9 @@ public class global_ip extends AppCompatActivity {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         AdView adView = new AdView(this);
         adView.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccent));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            adView.setBackground(getDrawable(R.drawable.l142946));
+        }
         adView.setLayoutParams(layoutParams);
         layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
         layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);

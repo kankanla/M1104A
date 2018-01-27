@@ -8,7 +8,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.DhcpInfo;
 import android.net.wifi.WifiInfo;
@@ -83,19 +82,16 @@ public class wifi_info extends Service {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CID);
         builder.setBadgeIconType(NotificationCompat.BADGE_ICON_LARGE);
         builder.setPriority(NotificationCompat.PRIORITY_MAX);
-        builder.setSmallIcon(R.drawable.path2679);
+        builder.setSmallIcon(R.drawable.ic_wifi_noti_icon);
         builder.setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL);
         builder.setContentTitle(getString(R.string.Wi_Fi_SPOT));
         builder.setContentText("WiFiを接続していません");
 
         if (wifiInfo.getIpAddress() != 0) {
             notificationManager.cancel(NID);
-//            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.f6146);
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.text2784);
-            builder.setLargeIcon(bitmap);
+            builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.text2784));
             builder.setContentTitle(getString(R.string.Wi_Fi_SPOT));
             builder.setContentText("SSID:" + wifiInfo.getSSID() + "   IP:" + ip);
-
             NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
             inboxStyle.addLine("WiFiSSID:" + wifiInfo.getSSID());
             inboxStyle.addLine("BSSID:" + wifiInfo.getBSSID());

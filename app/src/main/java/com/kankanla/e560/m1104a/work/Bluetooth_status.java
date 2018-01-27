@@ -100,8 +100,8 @@ public class Bluetooth_status extends Service {
     private void HEADSET_noti(List<BluetoothDevice> devices) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "HEADSET");
         NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
-        builder.setSmallIcon(android.R.drawable.btn_default);
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.f6146);
+        builder.setSmallIcon(R.drawable.ic_bl_tel);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.bttel);
         builder.setLargeIcon(bitmap);
         for (BluetoothDevice bt : devices) {
             builder.setContentTitle("HEADSET >>" + bt.getName());
@@ -119,8 +119,7 @@ public class Bluetooth_status extends Service {
 
     private void A2DP_noti(List<BluetoothDevice> devices) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "A2DP");
-        builder.setSmallIcon(android.R.drawable.btn_default);
-
+        builder.setSmallIcon(R.drawable.ic_bl_mu);
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.f6146);
         builder.setLargeIcon(bitmap);
         NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
